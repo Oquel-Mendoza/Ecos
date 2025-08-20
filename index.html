@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eco — Diario</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="manifest" href="manifest.json">
+    <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(() => {
+      console.log("Service Worker registrado");
+    });
+  }
+</script>
+</head>
+<body>
+  <!-- Header con logo y navegación -->
+  <header class="app-header">
+    <div class="brand">
+      <img src="assets/logo1.png" alt="Eco" class="logo"/>
+      <span class="brand-name">Eco</span>
+    </div>
+    <nav class="nav">
+      <button class="nav-link" data-section="inicio">Inicio</button>
+      <button class="nav-link" data-section="diario">Mi Diario</button>
+      <button class="nav-link" data-section="foro">Foro</button>
+      <button class="nav-link" data-section="frases">Frases</button>
+      <button class="nav-link" data-section="config">Configuración</button>
+      <button class="nav-link" data-section="acerca">Acerca de</button>
+    </nav>
+    <div class="actions">
+      <button id="theme-toggle" class="icon-btn"><span id="theme-icon">🌙</span></button>
+      <span id="welcomeMsg"></span>
+      <button id="logoutBtn" class="btn small outline">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <main class="container">
+    <!-- Inicio -->
+    <section id="inicio" class="section active">
+      <div class="card">
+        <h2>Frase motivacional</h2>
+        <p id="fraseInicio">Cargando frase...</p>
+      </div>
+      <div class="card">
+        <h2>Bienvenido a Eco</h2>
+        <p>Eco es tu espacio psicológico digital: escribe lo que sientes, comparte con la comunidad y encuentra motivación cada día ✨</p>
+      </div>
+    </section>
+
+    <!-- Mi Diario -->
+    <section id="diario" class="section">
+      <div class="card">
+        <h2>Escribir entrada</h2>
+        <textarea id="entradaTextarea" placeholder="Escribe tus pensamientos..."></textarea>
+        <div class="row">
+          <label class="chk">
+            <input type="checkbox" id="shareCheck"/>
+            <span>Compartir en el foro</span>
+          </label>
+          <button id="saveEntryBtn" class="btn">Guardar</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Mis entradas</h2>
+        <ul id="misEntradas"></ul>
+      </div>
+    </section>
+
+    <!-- Foro -->
+    <section id="foro" class="section">
+      <div class="card">
+        <h2>Foro comunitario</h2>
+        <ul id="foroLista"></ul>
+      </div>
+    </section>
+
+    <!-- Frases -->
+    <section id="frases" class="section">
+      <div class="card center">
+        <h2>Frases motivacionales</h2>
+        <p id="fraseBox">Haz clic para inspirarte…</p>
+        <button id="nuevaFraseBtn" class="btn">Nueva frase</button>
+      </div>
+    </section>
+
+    <!-- Configuración -->
+    <section id="config" class="section">
+      <div class="card">
+        <h2>Configuración</h2>
+        <button id="deleteEntriesBtn" class="btn outline">Eliminar todas mis entradas</button>
+        <button id="deleteAccountBtn" class="btn outline">Eliminar mi cuenta</button>
+      </div>
+    </section>
+
+    <!-- Acerca de -->
+    <section id="acerca" class="section">
+      <div class="card">
+        <h2>Acerca de Eco</h2>
+        <p>Eco es un prototipo desarrollado como un espacio psicológico digital. Aquí puedes reflexionar, compartir y motivarte.</p>
+        <p>Retroalimentación: <a href="mailto:eco-feedback@email.com">eco-feedback@email.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">Eco © 2025</footer>
+  <script src="js/app.js"></script>
+   
+</body>
+</html>
