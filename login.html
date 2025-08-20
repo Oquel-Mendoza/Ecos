@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eco — Iniciar Sesión</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="manifest" href="manifest.json">
+    <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(() => {
+      console.log("Service Worker registrado");
+    });
+  }
+</script>
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <img src="assets/logo1.png" alt="Eco" class="logo" />
+    <h1 class="app-title">Eco</h1>
+    <p class="subtitle">Tu diario psicológico digital 🧠</p>
+
+    <!-- Mensaje dinámico de error/éxito -->
+    <div id="loginMsg" class="msg"></div>
+
+    <!-- Formulario de login -->
+    <form id="loginForm">
+      <label>Alias</label>
+      <input type="text" id="loginAlias" placeholder="Tu alias" required />
+      <label>Contraseña</label>
+      <input type="password" id="loginPass" placeholder="••••••" required />
+      <button type="submit" class="btn">Entrar</button>
+      <p class="hint">¿No tienes cuenta? <a href="#" id="registerLink">Regístrate</a></p>
+    </form>
+
+    <!-- Formulario de registro -->
+    <form id="registerForm" style="display:none">
+      <label>Alias</label>
+      <input type="text" id="regAlias" placeholder="Elige un alias" required />
+      <label>Correo (opcional)</label>
+      <input type="email" id="regEmail" placeholder="tunombre@correo.com" />
+      <label>Contraseña</label>
+      <input type="password" id="regPass" placeholder="Mín. 4 caracteres" required />
+      <button type="submit" class="btn">Crear cuenta</button>
+      <p class="hint">¿Ya tienes cuenta? <a href="#" id="loginLink">Inicia sesión</a></p>
+    </form>
+
+    <!-- Toggle modo oscuro/claro -->
+    <button id="theme-toggle" class="icon-btn"><span id="theme-icon">🌙</span></button>
+  </div>
+  <script src="js/app.js"></script>
+    
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("SW registrado ✅"))
+      .catch(err => console.error("Error al registrar SW", err));
+  }
+  </script>
+
+</body>
+</html>
