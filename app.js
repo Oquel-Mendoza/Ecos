@@ -21,7 +21,7 @@ function setCurrent(a) { LS.set(CUR, a); }
 if (document.getElementById("loginForm")) {
   // Si ya hay sesión, saltar a index.html
   if (current()) {
-    location.href = "index.html";
+    location.href = "home.html";
   }
 
   const loginForm = document.getElementById("loginForm");
@@ -54,7 +54,7 @@ if (document.getElementById("loginForm")) {
     }
 
     setCurrent(alias);
-    location.href = "index.html";
+    location.href = "home.html";
   };
 
   // REGISTRO
@@ -83,7 +83,7 @@ if (document.getElementById("loginForm")) {
     msgBox.textContent = "✅ Cuenta creada con éxito";
     msgBox.className = "msg success";
 
-    setTimeout(() => location.href = "index.html", 800);
+    setTimeout(() => location.href = "home.html", 800);
   };
 
 } else {
@@ -91,14 +91,14 @@ if (document.getElementById("loginForm")) {
   // INDEX (después del login)
   // =========================
   const alias = current();
-  if (!alias) location.href = "login.html";
+  if (!alias) location.href = "index.html";
 
   document.getElementById("welcomeMsg").textContent = "Hola, " + alias + " 👋";
 
   // Logout
   document.getElementById("logoutBtn").onclick = () => {
     LS.del(CUR);
-    location.href = "login.html";
+    location.href = "index.html";
   };
 
   // Navegación entre secciones
@@ -139,3 +139,4 @@ function setTheme(mode) {
     if (themeIcon) themeIcon.textContent = "🌙";
   }
 }
+
