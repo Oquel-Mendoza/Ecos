@@ -2,7 +2,7 @@
 const CACHE_NAME = "eco-v1";
 const FILES_TO_CACHE = [
   "/",
-  "/login.html",
+  "/home.html",
   "/index.html",
   "/css/styles.css",
   "/js/app.js",
@@ -43,3 +43,4 @@ self.addEventListener("install", e => {
 self.addEventListener("fetch", e => {
   // de momento no hace nada especial
 });
+
